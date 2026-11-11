@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Miguel & Luani 💖</title>
+  <meta name="description" content="Uma surpresa feita com carinho.">
+  <meta name="theme-color" content="#1a0913">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💖</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Biblioteca 3D (three.js) carregada da internet. Ver README para usar offline. -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body class="travado">
+
+  <!-- Partículas de pétalas e corações (fundo) -->
+  <canvas id="petalas" aria-hidden="true"></canvas>
+  <div id="progresso" aria-hidden="true"></div>
+
+  <!-- ENVELOPE DE ABERTURA -->
+  <div id="envelope" role="dialog" aria-label="Abrir surpresa">
+    <button class="env-btn" id="env-btn" type="button" aria-label="Abrir a surpresa">
+      <div class="env">
+        <div class="env-traseira"></div>
+        <div class="env-carta"><span class="script" id="env-texto">Para você</span></div>
+        <div class="env-frente"></div>
+        <div class="env-baixo"></div>
+        <div class="env-aba"></div>
+        <div class="env-selo">♥</div>
+      </div>
+      <span class="env-dica">toque para abrir</span>
+    </button>
+  </div>
+
+  <button id="musica-btn" class="musica-btn" type="button" hidden aria-label="Ligar ou desligar a música">♪</button>
+  <audio id="audio" loop preload="none"></audio>
+
+  <!-- HERO -->
+  <header class="hero" id="topo">
+    <div class="hero-brilho"></div>
+    <p class="eyebrow reveal" id="hero-local"></p>
+    <h1 class="hero-nomes reveal">
+      <span class="script" id="nome1"></span>
+      <span class="e-comercial">&</span>
+      <span class="script" id="nome2"></span>
+    </h1>
+    <p class="hero-frase"><span id="frase"></span><i class="cursor"></i></p>
+    <a href="#historia" class="rolar" aria-label="Rolar para baixo"><span></span></a>
+  </header>
+
+  <main>
+    <section class="secao" id="historia">
+      <div class="cabeca reveal">
+        <p class="eyebrow">capítulo um</p>
+        <h2>Nossa história</h2>
+        <div class="divisor"><i>♥</i></div>
+      </div>
+      <div class="linha" id="linha-tempo"></div>
+    </section>
+
+    <section class="secao" id="galeria-sec">
+      <div class="cabeca reveal">
+        <p class="eyebrow">capítulo dois</p>
+        <h2>Momentos nossos</h2>
+        <div class="divisor"><i>♥</i></div>
+      </div>
+      <div class="galeria" id="galeria"></div>
+      <div class="videos" id="videos"></div>
+    </section>
+
+    <section class="secao" id="tesouros-sec">
+      <div class="cabeca reveal">
+        <p class="eyebrow">capítulo três</p>
+        <h2>Nossos tesouros</h2>
+        <p class="sub">Arraste para girar · role/pince para dar zoom</p>
+        <div class="divisor"><i>♥</i></div>
+      </div>
+      <div class="tesouros" id="tesouros"></div>
+    </section>
+
+    <section class="secao" id="tour-sec">
+      <div class="cabeca reveal">
+        <p class="eyebrow">capítulo quatro</p>
+        <h2>Um passeio pelo lugar</h2>
+        <p class="sub" id="tour-intro"></p>
+        <div class="divisor"><i>♥</i></div>
+      </div>
+      <div class="tour reveal">
+        <div class="tour-tela" id="tour-tela"></div>
+        <div class="tour-lateral">
+          <div class="tour-pontos" id="tour-pontos"></div>
+          <div class="tour-info" id="tour-info"></div>
+          <div class="tour-nav">
+            <button type="button" id="tour-ant">‹ Anterior</button>
+            <button type="button" id="tour-prox">Próximo ›</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao pedido" id="pedido">
+      <div class="cabeca reveal">
+        <p class="eyebrow" id="pedido-data"></p>
+        <h2 id="pedido-titulo"></h2>
+        <div class="divisor"><i>♥</i></div>
+      </div>
+      <p class="pedido-texto reveal" id="pedido-texto"></p>
+      <h3 class="pergunta script reveal" id="pergunta"></h3>
+      <div class="botoes reveal" id="botoes">
+        <button type="button" class="btn-sim" id="btn-sim">Sim 💖</button>
+        <button type="button" class="btn-nao" id="btn-nao">Não</button>
+      </div>
+      <div class="resposta" id="resposta" hidden>
+        <div class="resposta-coracao">💖</div>
+        <p id="resposta-texto"></p>
+      </div>
+      <div class="como" id="como" hidden>
+        <h4>Como foi</h4>
+        <p id="como-texto"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape"><span class="script" id="rodape"></span></footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button type="button" class="lb-fechar" aria-label="Fechar">×</button>
+    <figure><img alt=""><figcaption></figcaption></figure>
+  </div>
+
+  <canvas id="confete" aria-hidden="true"></canvas>
+
+  <script src="js/conteudo.js"></script>
+  <script src="js/main.js"></script>
+  <script type="module" src="js/visualizador3d.js"></script>
+</body>
+</html>

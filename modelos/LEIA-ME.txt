@@ -1,0 +1,2 @@
+Coloque aqui seus arquivos 3D (.glb) e depois escreva o caminho em js/conteudo.js
+Ex.: modelo: "modelos/homem-aranha.glb"
