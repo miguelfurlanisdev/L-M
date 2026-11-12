@@ -17,13 +17,13 @@ main,header,footer{position:relative;z-index:1}
 #progresso{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--rosa),var(--ouro));z-index:80;box-shadow:0 0 12px var(--rosa)}
 
 /* ---------- Envelope ---------- */
-#envelope{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,#3a1330,#12060e 70%);transition:opacity 1s .5s,visibility 0s 1.5s}
+#envelope{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,#3a1330,#12060e 70%);transition:opacity 1.2s ease .8s,visibility 0s 2s}
 #envelope.aberto{opacity:0;visibility:hidden;pointer-events:none}
 .env-btn{background:none;border:0;cursor:pointer;color:var(--txt);font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:2.2rem}
 .env{position:relative;width:min(78vw,340px);aspect-ratio:1.5;perspective:900px;animation:flutuar 4s ease-in-out infinite}
 .env>*{position:absolute}
 .env-traseira{inset:0;background:#c43b66;border-radius:8px;box-shadow:0 30px 60px rgba(0,0,0,.6),0 0 80px rgba(255,107,152,.25)}
-.env-carta{left:8%;right:8%;top:6%;height:80%;background:var(--creme);border-radius:6px;display:grid;place-items:center;color:#7a2243;font-size:clamp(1.7rem,7vw,2.5rem);transition:transform .9s .35s cubic-bezier(.2,.8,.2,1);text-align:center;padding:0 .5rem;line-height:1.1}
+.env-carta{left:8%;right:8%;top:6%;height:80%;background:var(--creme);border-radius:6px;display:grid;place-items:center;color:#7a2243;font-size:clamp(1.7rem,7vw,2.5rem);transition:transform .9s .35s cubic-bezier(.2,.8,.2,1),z-index 0s .8s;text-align:center;padding:0 .5rem;line-height:1.1}
 .env-frente{inset:0;z-index:2}
 .env-frente::before,.env-frente::after{content:"";position:absolute;inset:0;border-radius:8px}
 .env-frente::before{background:#a82d56;clip-path:polygon(0 0,52% 55%,0 100%)}
@@ -34,7 +34,7 @@ main,header,footer{position:relative;z-index:1}
 .env-dica{font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;color:var(--suave);animation:pisca 2s infinite}
 #envelope.abrindo .env-aba{transform:rotateX(180deg);z-index:0}
 #envelope.abrindo .env-selo{opacity:0}
-#envelope.abrindo .env-carta{transform:translateY(-70%) scale(1.15)}
+#envelope.abrindo .env-carta{transform:translateY(-70%) scale(1.15);z-index:5}
 @keyframes flutuar{50%{transform:translateY(-12px)}}
 @keyframes pisca{50%{opacity:.35}}
 @keyframes bater{50%{transform:translate(-50%,-50%) scale(1.15)}}

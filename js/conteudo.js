@@ -38,8 +38,8 @@ window.CONTEUDO = {
      │           Ex: "musica/nossa-musica.mp3". Deixe "" para não ter música. │
      └──────────────────────────────────────────────────────────────────────┘ */
   abertura: {
-    envelope: "Para a Luani",
-    frase: "Eu preparei uma coisa especial pra você…",
+    envelope: "Para Luani Yamazaki",
+    frase: "Fiz algo especial para você…",
     musica: "",
   },
 
@@ -55,21 +55,21 @@ window.CONTEUDO = {
      └──────────────────────────────────────────────────────────────────────┘ */
   historia: [
     {
-      data: "✍️ Escreva a data / momento",
+      data: "06/04/25 - Um culto de Domingo",
       titulo: "O começo de tudo",
-      texto: "✍️ Conte aqui como vocês se conheceram: onde estavam, o que você pensou quando a viu pela primeira vez, quem puxou assunto…",
+      texto: "Consigo lembrar até hoje do primeiro dia que te vi, numa Santa Ceia de Páscoa... Você chegando atrasada na hora do louvor kkk, meu mundo parou naquele momento, meu coração deu um duplo mortal carpado (E olha que nem sabia que corações faziam isso). Eu só conseguia pensar quem é essa garota?",
       foto: "fotos/selfie-coracoes.jpg",
     },
     {
-      data: "✍️ Escreva a data / momento",
-      titulo: "Nossos rolês de carro",
-      texto: "✍️ Conte uma lembrança dentro do carro: pra onde iam, o que ouviam, alguma risada que ficou marcada.",
+      data: "02/11 - Um dia inteiro juntos ",
+      titulo: "Nosso primeiro selinho",
+      texto: "Depois de tanto tempo, finalmente aconteceu kkk... A gente se olhou no carro e só aconteceu, nem pareceu que foi o primeiro de tão natural e leve que foi.",
       foto: "fotos/carro-1.jpg",
     },
     {
-      data: "✍️ Escreva a data / momento",
-      titulo: "Violão na grama",
-      texto: "✍️ Qual música você tocou pra ela? Por que escolheu essa? Como foi ver ela sorrindo enquanto você tocava?",
+      data: "24/10 - Primeira vez que você veio em casa",
+      titulo: "Primeiro louvor gravado",
+      texto: "A gente sentou lado a lado depois de alguns minutos decidindo aonde que iriamos gravar e nem pareceu que foi a primeira vez também, até porque tudo com você é tão leve e bom que chega a ser inexplicavel, cantamos Até que o Senhor Venha e Encontre Aqui",
       foto: "fotos/violao.jpg",
     },
     {
