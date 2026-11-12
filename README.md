@@ -1,42 +1,82 @@
-# 💖 Site do pedido — Miguel & Luani
-
-Site estático (HTML/CSS/JS puro, sem instalar nada).
-
-## 1. Personalizar
-Edite **só** `js/conteudo.js`. Cada bloco tem um **cartão comentado** (`✍️ CARTÃO`) dizendo o que escrever.
-Procure por `✍️` para achar tudo que ainda falta preencher. Salve e atualize a página.
-
-## 2. Ver no seu computador
-Os modelos 3D exigem um servidor (não funcionam abrindo o arquivo com duplo clique):
-- VS Code: extensão **Live Server** → botão direito em `index.html` → *Open with Live Server*, ou
-- Terminal na pasta: `python3 -m http.server 8000` e abra http://localhost:8000
-
-## 3. Publicar grátis no GitHub Pages
-1. Crie um repositório no GitHub (ex.: `pedido`) e envie todos estes arquivos (pode arrastar no site do GitHub: *Add file → Upload files*).
-2. **Settings → Pages → Source: Deploy from a branch → Branch: `main` / `(root)` → Save**.
-3. Em ~1 minuto o site fica em `https://SEU-USUARIO.github.io/pedido/`.
-4. Teste no celular e gere um QR Code desse link para o grande dia.
-
-## 4. Os 3 tesouros em 3D
-- **Anel**: modelo próprio (caixinha que abre/fecha ao clicar, solitário com pedra azul e aliança).
-- **Unicórnio**: pelúcia original genérica.
-- **Homem-Aranha**: mostra a sua foto num cartão 3D giratório.
-
-Para mostrar o **objeto real** de cada um: escaneie o objeto com o celular (apps grátis: **Polycam**, **Luma AI**, **KIRI Engine**), exporte como `.glb`, coloque na pasta `modelos/` e escreva em `conteudo.js`, por exemplo `modelo: "modelos/homem-aranha.glb"`. Dica: arquivos abaixo de ~15 MB.
-
-## 5. Tour pelo Jardim Botânico
-Veja o **CARTÃO 7** em `conteudo.js`. Dois jeitos:
-- **Street View**: preencha `lat`/`lng` de cada ponto (clique direito no Google Maps → copiar coordenadas).
-- **Fotos 360° suas**: salve em `tour/` e use `foto360: "tour/entrada.jpg"`.
-Sem nada preenchido, o site mostra o mapa por satélite do jardim.
-**Faça isso ANTES do dia 14** e teste no celular.
-
-## 6. Música (opcional)
-Coloque um `.mp3` em `musica/` e escreva o caminho em `abertura.musica`.
-
-## Estrutura
+# 💖 L♥M — Um site de namoro
+ 
+Site romântico feito à mão para o meu **namoro**, com nossas história, galeria de fotos e vídeos, objetos em **3D interativo**, um **tour virtual** pelo local do pedido e uma pergunta final.
+ 
+> HTML, CSS e JavaScript puros. Sem framework, sem build e sem instalar nada. Roda direto no **GitHub Pages**.
+ 
+---
+ 
+## ✨ O que o site tem
+ 
+| Seção | O que faz |
+|---|---|
+| **Envelope de abertura** | Um envelope animado que abre ao toque. A carta sai na frente e a tela some com fade. Também é o momento em que a música começa. |
+| **Início** | Nomes do casal em destaque, frase que aparece "digitando" e pétalas e corações caindo pela tela. |
+| **Nossa história** | Linha do tempo com fotos em moldura de polaroid, que inclinam em 3D ao passar o mouse e aparecem conforme a página rola. |
+| **Momentos nossos** | Galeria de polaroids com zoom (lightbox) e vídeos do casal. |
+| **Nossos tesouros (3D)** | Três objetos que o visitante pode girar, arrastar e dar zoom: um anel com caixinha que abre e fecha ao clicar, uma pelúcia de unicórnio e um cartão de foto 3D. |
+| **Um passeio pelo lugar** | Tour virtual com Street View do Google ou fotos 360° próprias, com pontos de parada e botões de navegação. |
+| **O pedido** | Declaração, pergunta final e dois botões: o **"Sim"** solta confete e corações, e o **"Não"** foge do dedo ou do mouse. |
+| **Música** | Trilha de fundo opcional, com botão para pausar. |
+ 
+---
+ 
+## 🛠️ Tecnologias
+ 
+- **HTML5 / CSS3**: Grid, Flexbox, `clip-path`, animações com `@keyframes`, variáveis CSS e `prefers-reduced-motion` (respeita quem desativa animações).
+- **JavaScript (ES6+)**: sem dependências para a lógica principal. Usa `IntersectionObserver` para animar ao rolar, `<canvas>` 2D para pétalas e confete e `ResizeObserver`.
+- **[three.js](https://threejs.org/) (r160)**, carregado por CDN com `importmap`:
+  - `OrbitControls` para girar e dar zoom nos objetos,
+  - `RoundedBoxGeometry`, `RoomEnvironment` (reflexos nos metais) e `GLTFLoader` (modelos `.glb` reais).
+- **Google Fonts**: Playfair Display, Great Vibes e Poppins.
+- **Google Maps (embed)**: Street View sem chave de API.
+### Como o 3D foi feito
+ 
+- O **anel**, a **caixinha de veludo** e a **pelúcia** são modelados **por código** (geometrias do three.js), sem arquivos de modelo.
+- Qualquer objeto pode ser trocado por um modelo real, em `.glb`, informando o caminho em `js/conteudo.js`.
+- Cada visualizador só renderiza quando está visível na tela, para economizar bateria no celular.
+- No celular, arrastar na horizontal gira o objeto e arrastar na vertical rola a página.
+---
+ 
+## 📁 Estrutura
+ 
 ```
-index.html  css/style.css  js/conteudo.js  js/main.js  js/visualizador3d.js
-fotos/  videos/  modelos/  tour/  musica/
+├── index.html            # estrutura da página
+├── css/
+│   └── style.css         # visual e animações
+├── js/
+│   ├── conteudo.js       # ✍️ TODOS os textos e configurações (único arquivo a editar)
+│   ├── main.js           # lógica: envelope, linha do tempo, galeria, tour, pedido, partículas
+│   └── visualizador3d.js # objetos 3D e tour em foto 360°
+├── fotos/                # fotos otimizadas
+├── videos/               # vídeos (.mp4) e capas
+├── modelos/              # modelos 3D opcionais (.glb)
+├── musica/               # trilha sonora (.mp3)
+└── tour/                 # fotos 360° opcionais
 ```
-O 3D usa three.js via CDN (jsdelivr); precisa de internet.
+ 
+---
+ 
+## ✏️ Como personalizar
+ 
+Todo o conteúdo fica em **`js/conteudo.js`**, organizado em **cartões comentados** que explicam o que escrever em cada campo: nomes, história, galeria, vídeos, descrição dos objetos 3D, pontos do tour, texto do pedido e música.
+ 
+- **Fotos e vídeos**: coloque os arquivos nas pastas e informe o caminho em `conteudo.js`.
+- **Objeto 3D real**: escaneie o objeto com um app (Polycam, Luma AI, KIRI Engine), exporte em `.glb`, salve em `modelos/` e preencha o campo `modelo`.
+- **Tour**: informe `lat` e `lng` (Street View) ou `foto360` (foto 360° própria) em cada ponto.
+- **Música**: coloque um `.mp3` em `musica/` e preencha `abertura.musica`.
+---
+ 
+## ♿ Acessibilidade e desempenho
+ 
+- Respeita `prefers-reduced-motion`.
+- Imagens com carregamento preguiçoso (`loading="lazy"`).
+- Layout responsivo, pensado primeiro para o celular.
+- Os visualizadores 3D só renderizam quando aparecem na tela.
+---
+ 
+## 💌 Sobre
+ 
+Projeto pessoal, feito com carinho para um momento especial.
+O código pode ser usado como base para outros sites de pedido, aniversário ou declaração.
+ 
