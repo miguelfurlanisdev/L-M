@@ -40,7 +40,7 @@ window.CONTEUDO = {
   abertura: {
     envelope: "Para Luani Yamazaki",
     frase: "Fiz algo especial para você…",
-    musica: "",
+    musica: "musica/audio4.mp3",
   },
 
   /* ┌──────────────────────────────────────────────────────────────────────┐
@@ -71,29 +71,31 @@ window.CONTEUDO = {
       titulo: "Primeiro louvor gravado",
       texto: "A gente sentou lado a lado depois de alguns minutos decidindo aonde que iriamos gravar e nem pareceu que foi a primeira vez também, até porque tudo com você é tão leve e bom que chega a ser inexplicavel, cantamos Até que o Senhor Venha e Encontre Aqui",
       foto: "fotos/violao.jpg",
+      musica: "musica/audio2.mp3",
     },
     {
-      data: "✍️ Escreva a data / momento",
-      titulo: "Rindo à toa",
-      texto: "✍️ Aquele dia em que vocês só riram. Onde foi? Qual era a piada? Por que esse dia é especial?",
+      data: "..",
+      titulo: "Quadrinha",
+      texto: "A gente tinha acabado de chegar na quadrinha e deitamos cabeça com cabeça no brinquedo enquanto a gente conversa",
       foto: "fotos/balanco.jpg",
     },
     {
-      data: "✍️ Escreva a data / momento",
-      titulo: "Dias de diversão",
-      texto: "✍️ Fliperama, shopping, passeio… conte um lugar divertido que vocês foram juntos e o que aconteceu lá.",
+      data: "..",
+      titulo: "Primeiro Cinema",
+      texto: "O dia que a gente foi assitir Homem-Aranha no cinema, foi o primeiro filme que assistimos no cinema, e primeira vez que ficamos de mãos dadas.",
       foto: "fotos/fliperama.jpg",
+      musica: "musica/audio3.mp3",
     },
     {
-      data: "✍️ Escreva a data / momento",
-      titulo: "Flores pra você",
-      texto: "✍️ Conte sobre o dia das flores: como foi a surpresa, o que ela falou, como ela reagiu.",
+      data: "..",
+      titulo: "Primeiro buquê",
+      texto: "Primeiro buquê de flores que eu te entreguei, foi um dia depois do casamento da minha tia, na esquina da dhouse, a gente tinha saído e meus pais estavam no carro com ele, daí eu apenas pedi para você esperar e sai com um buquê com diversar flores e lírios, você abriu o seu sorriso lindo de ponta a ponta e nos abraçamos e tiramos fotos.",
       foto: "fotos/flores-casal.jpg",
     },
     {
-      data: "✍️ Escreva a data / momento",
+      data: "..",
       titulo: "M + L",
-      texto: "✍️ Quem escreveu as iniciais? Onde fica esse lugar? O que ele significa pra vocês?",
+      texto: "O dia que a gente foi na quadrinha com nossos amigos, e logo depois que fui embora recebi essa foto, você tinha riscado nossas iniciais na madeira do brinquedo, na hora que abri a foto dei um sorriso bobo kkk",
       foto: "fotos/tronco-ml.jpg",
     },
   ],
@@ -106,14 +108,14 @@ window.CONTEUDO = {
      │ bloco igual aos de baixo.                                              │
      └──────────────────────────────────────────────────────────────────────┘ */
   galeria: [
-    { foto: "fotos/selfie-orelhinhas.jpg", legenda: "✍️ legenda" },
-    { foto: "fotos/carro-2.jpg",           legenda: "✍️ legenda" },
-    { foto: "fotos/balanco-pb.jpg",        legenda: "✍️ legenda" },
-    { foto: "fotos/flores-ela.jpg",        legenda: "✍️ legenda" },
-    { foto: "fotos/surpresa.jpg",          legenda: "✍️ legenda" },
-    { foto: "fotos/caixinha-mao.jpg",      legenda: "✍️ legenda" },
-    { foto: "fotos/carro-1.jpg",           legenda: "✍️ legenda" },
-    { foto: "fotos/selfie-coracoes.jpg",   legenda: "✍️ legenda" },
+    { foto: "fotos/selfie-orelhinhas.jpg", legenda: "" },
+    { foto: "fotos/carro-2.jpg",           legenda: "" },
+    { foto: "fotos/balanco-pb.jpg",        legenda: "" },
+    { foto: "fotos/flores-ela.jpg",        legenda: "" },
+    { foto: "fotos/surpresa.jpg",          legenda: "" },
+    { foto: "fotos/caixinha-mao.jpg",      legenda: "" },
+    { foto: "fotos/carro-1.jpg",           legenda: "" },
+    { foto: "fotos/selfie-coracoes.jpg",   legenda: "" },
   ],
 
   /* ┌──────────────────────────────────────────────────────────────────────┐
@@ -122,8 +124,8 @@ window.CONTEUDO = {
      │ capa: imagem de capa (opcional). Apague o bloco se não quiser vídeos.  │
      └──────────────────────────────────────────────────────────────────────┘ */
   videos: [
-    { arquivo: "videos/video1.mp4", capa: "videos/video1.jpg", legenda: "✍️ Qual momento é esse?" },
-    { arquivo: "videos/video2.mp4", capa: "videos/video2.jpg", legenda: "✍️ Qual momento é esse?" },
+    { arquivo: "videos/video1.mp4", capa: "videos/video1.jpg", legenda: "Eu entregando o buquê" },
+    { arquivo: "videos/video2.mp4", capa: "videos/video2.jpg", legenda: "A gente rindo" },
   ],
 
   /* ┌──────────────────────────────────────────────────────────────────────┐
@@ -146,22 +148,22 @@ window.CONTEUDO = {
       id: "anel",
       titulo: "O anel",
       subtitulo: "Pequeno por fora, enorme por dentro",
-      descricao: "✍️ Conte sobre o anel: por que você escolheu esse modelo, por que a pedra é azul, o que ele representa pra você e o que você quer dizer entregando ele.",
+      descricao: "Já faz um bom tempo que estou esperando o momento certo para entregar essa anel, a pedra azul pela sua cor favorita foi o que fez eu ter a certeza de que seria ele",
       modelo: "",
     },
     {
       id: "aranha",
       titulo: "O Homem-Aranha",
-      subtitulo: "Tem uma história aqui",
-      descricao: "✍️ Explique por que o Homem-Aranha está aqui: foi um presente? É uma piada interna? Lembra algum dia? Escreva a história completa!",
+      subtitulo: "Gwen & Peter",
+      descricao: "O Homem-Aranha que você trouxe da sua viagem para fora, a gente usa combinando em nossas bolsas, você com a Gwen e eu o Peter",
       modelo: "",           // ex: "modelos/homem-aranha.glb"
       foto: "fotos/homem-aranha.jpg",   // mostrada enquanto você não tem o .glb
     },
     {
       id: "unicornio",
       titulo: "O unicórnio",
-      subtitulo: "Ele também faz parte da gente",
-      descricao: "✍️ Explique por que o unicórnio está aqui: quem deu, quando, o que ele significa pra ela e por que ele não podia ficar de fora.",
+      subtitulo: "Minions",
+      descricao: "Seu unicórnio dos minions que você comprou na sua viagem também, lembro até hoje do quão feliz você me ligou e mandou foto por esse unicórnio kkkk.",
       modelo: "",           // ex: "modelos/unicornio.glb"
     },
   ],
@@ -194,24 +196,24 @@ window.CONTEUDO = {
      │   Se lat/lng e foto360 estiverem vazios, o site mostra o mapa do lugar.│
      └──────────────────────────────────────────────────────────────────────┘ */
   tour: {
-    intro: "Quer conhecer o lugar onde tudo vai acontecer? Venha andar comigo. Arraste para olhar em volta e clique nas setinhas para caminhar.",
+    intro: "Onde tudo aconteceu? Venha andar comigo. Arraste para olhar em volta e clique nas setinhas para caminhar.",
     enderecoBusca: "Jardim Botânico Irmãos Villas-Bôas, Sorocaba, SP",   // usado quando não há lat/lng
     pontos: [
       {
         nome: "A entrada",
-        descricao: "✍️ Por aqui começa o nosso dia.",
+        descricao: "Você foi para um piquenique, mal imaginando que eu estaria lá, pelo menos tão cedo kkk",
         lat: null, lng: null, heading: 0,
         foto360: "",
       },
       {
         nome: "O caminho",
-        descricao: "✍️ Descreva o trecho do passeio: o que tem de bonito, o que vocês vão fazer ali.",
+        descricao: "As meninas me ajudaram na surpresa, o dia que elas foram call para dar ideia de sair no sábado.",
         lat: null, lng: null, heading: 90,
         foto360: "",
       },
       {
         nome: "O nosso cantinho",
-        descricao: "✍️ O lugar exato do pedido! Conte por que você escolheu este ponto.",
+        descricao: "Eu cheguei horas antes para conseguir encontrar um canto e arrumar ele, a Nunes e a Eló chegaram antes para me ajudar também.",
         lat: null, lng: null, heading: 180,
         foto360: "",
       },
@@ -228,10 +230,11 @@ window.CONTEUDO = {
      │            Fica numa caixinha "Como foi". Deixe "" por enquanto.       │
      └──────────────────────────────────────────────────────────────────────┘ */
   pedido: {
+    musica: "musica/audio1.mp3",
     titulo: "Chegou o grande momento",
-    texto: "✍️ Escreva aqui sua declaração: o que ela representa pra você, o que mudou na sua vida desde que ela chegou, o que você promete.",
+    texto: "Saiba que você é uma das melhores coisas que já me aconteceram, você é única, incrivél e indescritível, me falta até palavras para descrever o quão bem e feliz você me faz. Você é simplesmente A GAROTA DOS MEUS SONHOS, e nem nos meus sonhos eu consegui imaginar alguém como vc... Te amo bbzuda .",
     pergunta: "Luani, quer namorar comigo?",
-    resposta: "✍️ Ela disse SIM! Escreva aqui uma mensagem de comemoração que aparece quando ela clicar em Sim. 💖",
+    resposta: "Ufaaa, We Forever!!",
     como: "",
   },
 
@@ -239,5 +242,5 @@ window.CONTEUDO = {
      │ ✍️ CARTÃO 9 — RODAPÉ                                                   │
      │ Frase pequena no fim da página.                                        │
      └──────────────────────────────────────────────────────────────────────┘ */
-  rodape: "Feito com amor, só pra você.",
+  rodape: "Feito com amor, para você.",
 };
