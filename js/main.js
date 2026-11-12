@@ -27,6 +27,7 @@
   var linha = $('#linha-tempo');
   C.historia.forEach(function (m) {
     var d = el('article', 'marco');
+    if(m.musica) d.dataset.musica = m.musica;
     var foto = el('div', 'marco-foto reveal reveal-esq');
     if (m.foto) {
       var f = el('div', 'moldura');
@@ -146,15 +147,25 @@
     (function passo() { alvo.textContent = txt.slice(0, ++i); if (i < txt.length) setTimeout(passo, 55); })();
   }
 
-  /* ---------- Música ---------- */
-  var audio = $('#audio'), mbtn = $('#musica-btn');
-  if (C.abertura.musica) {
-    audio.src = C.abertura.musica; mbtn.hidden = false;
-    mbtn.onclick = function () {
-      if (audio.paused) { audio.play(); mbtn.classList.add('tocando'); mbtn.classList.remove('mudo'); }
-      else { audio.pause(); mbtn.classList.remove('tocando'); mbtn.classList.add('mudo'); }
-    };
+    /* ---------- Música ---------- */
+  var audio = $('#audio'), mbtn = $('#musica-btn'), silenciado = false;
+  function marcarTocando(on) { mbtn.classList.toggle('tocando', on); mbtn.classList.toggle('mudo', !on); }
+  function tocarMusica(src, forcar) {
+    if (!src || (silenciado && !forcar)) return;
+    if (audio.getAttribute('src') !== src) audio.src = src;
+    mbtn.hidden = false;
+    audio.play().then(function () { silenciado = false; marcarTocando(true); }).catch(function () {});
   }
+  if (C.abertura.musica) { audio.src = C.abertura.musica; mbtn.hidden = false; }
+  mbtn.onclick = function () {
+    if (audio.paused) { silenciado = false; audio.play(); marcarTocando(true); }
+    else { silenciado = true; audio.pause(); marcarTocando(false); }
+  };
+  // toca a música do card quando ele chega no meio da tela
+  var ioMusica = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) tocarMusica(e.target.dataset.musica); });
+  }, { rootMargin: '-45% 0px -45% 0px' });
+  document.querySelectorAll('[data-musica]').forEach(function (n) { ioMusica.observe(n); });
 
   /* ---------- Envelope ---------- */
   var env = $('#envelope');
@@ -222,6 +233,7 @@
     $('#botoes').hidden = true; $('#resposta').hidden = false;
     $('#pergunta').textContent = C.casal.nome1 + ' & ' + C.casal.nome2 + ' ♥';
     explodir(); setTimeout(explodir, 1200); setTimeout(explodir, 2600);
+    tocarMusica(C.pedido.musica, true);
     $('#resposta').scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
   var cc = $('#confete'), c2 = cc.getContext('2d'), parts = [], rodando = false;
